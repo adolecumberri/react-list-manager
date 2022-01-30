@@ -3,10 +3,9 @@ import ListManager from './components/ListManager';
 
 function App() {
 
-  const [list, setList] = useState<{[x:string]: any[]}>( {
-    availableValues: [],
-    selectedValues: [],
-  });
+  const [list, setList] = useState<string[]>( 
+    ["Hola", "Adios", "Saludos", "Buenas tardes", "Aguarrás", "Un café, gracias"]
+  );
 
   return (
     <div className="App">
