@@ -1,19 +1,20 @@
 
 
-import React, { FC, useReducer, CSSProperties } from 'react';
+import React, { FC, CSSProperties } from 'react';
 
 interface IButton {
-    text: string;
-    onClick?: () => void;
-    disabled?: boolean;
     className?: string;
+    disabled?: boolean;
+    onClick?: (e: any) => void;
     style?: CSSProperties;
+    text: string;
 }
 
-const Button: FC<IButton> = ({ text, onClick, disabled = false, style }) => {
+const Button: FC<IButton> = ({ className, disabled = false, onClick, style, text }) => {
 
     return <>
         <input
+            className={className}
             style={style}
             type="button"
             value={text}

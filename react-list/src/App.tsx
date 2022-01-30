@@ -3,13 +3,13 @@ import ListManager from './components/ListManager';
 
 function App() {
 
-  const [list, setList] = useState<string[]>( 
-    ["Hola", "Adios", "Saludos", "Buenas tardes", "Aguarrás", "Un café, gracias"]
-  );
+  const defaultValues = ["Hola", "Adios", "Saludos", "Buenas tardes", "Aguarrás", "Un café, gracias"];
+
+  const [list, setList] = useState<string[]>();
 
   return (
     <div className="App">
-      <ListManager data={[list, setList]}/>
+      <ListManager data={defaultValues} onChange={(newValue: string[]) => setList(newValue)} />
     </div>
   );
 }
