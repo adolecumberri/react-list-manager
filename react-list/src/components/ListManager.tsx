@@ -72,6 +72,7 @@ const ListManager: FC<IListManager> = ({ data = [], style, onChange }) => {
                 type="text"
                 placeholder='Type to search'
                 value={filterText}
+                style={style?.searchInput}
                 onChange={({ target: { value } }) => {
 
                     setDataShown(value ? availableData.filter(element =>
@@ -93,7 +94,7 @@ const ListManager: FC<IListManager> = ({ data = [], style, onChange }) => {
                 }}
             />
         </div>
-        <List className="LM-list-available"  >
+        <List className="LM-list-available"  style={style?.lists} >
 
             {
                 dataShown.map((value, i) =>
@@ -102,13 +103,14 @@ const ListManager: FC<IListManager> = ({ data = [], style, onChange }) => {
                         text={value}
                         className="my-list-btn"
                         onClick={(e) => { selectValue(e.target.value) }}
+                        style={style?.listBtns}
                     />
                 )
             }
 
         </List>
 
-        <List className="LM-list-selected" >
+        <List className="LM-list-selected" style={style?.lists}>
             {
                 dataSelected.map((value, i) =>
                     <Button
@@ -116,6 +118,7 @@ const ListManager: FC<IListManager> = ({ data = [], style, onChange }) => {
                         text={value}
                         className="my-list-btn"
                         onClick={(e) => { removeValue(e.target.value) }}
+                        style={style?.listBtns}
                     />
                 )
             }
